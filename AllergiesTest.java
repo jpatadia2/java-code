@@ -14,7 +14,7 @@ class AllergiesTest {
 
     @Test
     void cats() {
-        assertEquals("CATS" , Allergies.getAllergy(256));
+        assertEquals("CATS" , Allergies.getAllergy(128));
     }
 
     @Test
@@ -23,7 +23,12 @@ class AllergiesTest {
     }
 
     @Test
+    void outOfBounds() {
+        assertEquals("EGGS" , Allergies.getAllergy(256 ));
+    }
+
+    @Test
     void allOfThem() {
-        assertEquals("EGGS,PEANUTS,SHELLFISH,STRAWBERRIES,TOMATOES,CHOCOLATE,POLLEN,CATS" , Allergies.getAllergy(383 ));
+        assertEquals("EGGS,PEANUTS,SHELLFISH,STRAWBERRIES,TOMATOES,CHOCOLATE,POLLEN,CATS" , Allergies.getAllergy(255 ));
     }
 }

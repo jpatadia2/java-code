@@ -15,7 +15,7 @@ public class Allergies {
         TOMATOES (16),
         CHOCOLATE (32),
         POLLEN (64),
-        CATS (256);
+        CATS (128);
 
         int value;
         ALLERGY(int val) {
@@ -35,7 +35,8 @@ public class Allergies {
     }
 
     public static String getAllergy(int val) {
-        if(val < 1 || val > 383) return "";
+        if(val < 1) return "";
+        if(val > 255) return ALLERGY.EGGS.toString();
         return Arrays.stream(ALLERGY.values()).filter(x -> (x.value & val) == x.value).map( x -> x.toString()).collect(Collectors.joining(","));
     }
 }
