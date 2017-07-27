@@ -14,7 +14,7 @@ public class Piglatin {
         generatePiglatin(args);
     }
 
-    public static void generatePiglatin(String[] words) {
+    public static String generatePiglatin(String[] words) {
         List<String> piglatin = new ArrayList<>();
         for(String w : words) {
             String first = Character.toString(w.charAt(0));
@@ -24,7 +24,10 @@ public class Piglatin {
                 piglatin.add(w.substring(1) + first + "ay");
         }
 
+        String output = piglatin.stream().collect(Collectors.joining(","));
         System.out.println("Original:" + Arrays.stream(words).collect(Collectors.joining(",")));
         System.out.println("Piglatin:" + piglatin.stream().collect(Collectors.joining(",")));
+
+        return output;
     }
 }
