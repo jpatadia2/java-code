@@ -30,9 +30,12 @@ public class Allergies {
     public static void main(String[] args) {
         int val = Integer.valueOf(args[0]);
 
-        String allergies = Arrays.stream(ALLERGY.values()).filter(x -> (x.value & val) == x.value).map( x -> x.toString()).collect(Collectors.joining(","));
+        System.out.println("Input:" + val + ", ALLERGIES : " + getAllergy(val));
 
-        System.out.println("Input:" + val + ", ALLERGIES : " + allergies);
+    }
 
+    public static String getAllergy(int val) {
+        if(val < 1 || val > 383) return "";
+        return Arrays.stream(ALLERGY.values()).filter(x -> (x.value & val) == x.value).map( x -> x.toString()).collect(Collectors.joining(","));
     }
 }
