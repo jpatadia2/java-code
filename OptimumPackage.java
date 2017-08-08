@@ -14,6 +14,8 @@ public class OptimumPackage {
         segList.add(new Segment(1, 3));
         segList.add(new Segment(2, 5));
         segList.add(new Segment(3, 4));
+        segList.add(new Segment(2, 9));
+        segList.add(new Segment(8, 9));
         System.out.println("Optimum Time(s): " + Arrays.toString(optimalPoints(segList)));
     }
 
@@ -35,7 +37,7 @@ public class OptimumPackage {
 
             Segment last = segList.get(i-1);
 
-            if(curr >= last.start && curr <= s.end) {
+            if(curr >= s.start && curr <= s.end) {
                 // current fits in the last range. nothing to do
                 continue;
             } else {
